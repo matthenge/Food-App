@@ -264,9 +264,100 @@ class _BurgerPageState extends State<BurgerPage> {
                 ),
               )
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Text(
+              'FEATURED',
+              style: GoogleFonts.notoSans(
+                fontWeight: FontWeight.w700,
+                fontSize: 16.0,
+              ),
+            ),
+          ),
+          Container(
+            height: 225.0,
+            width: MediaQuery.of(context).size.width,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                _buildListItem('1'),
+                _buildListItem('2')
+              ],
+            ),
           )
         ],
       ),
+    );
+  }
+
+  _buildListItem(String columnNumber) {
+    return Padding(
+      padding: EdgeInsets.all(15.0),
+      child: Column(
+        children: <Widget>[
+          if(columnNumber == '1')
+            _buildColumnItem('assets/cheese.png', 'Sweet cheese', '11', Color(0xFFFBD6F5)),
+          if(columnNumber == '1')
+            SizedBox(height: 15.0),
+          if(columnNumber == '1')
+            _buildColumnItem('assets/popcorn.png', 'Sweet popcorn', '11', Color(0xFFFFE9C6)),
+          if(columnNumber == '2')
+            _buildColumnItem('assets/taco.png', 'Tacos', '6', Color(0xFFC2E3FE)),
+          if(columnNumber == '2')
+            SizedBox(height: 15.0),
+          if(columnNumber == '2')
+            _buildColumnItem('assets/sandwich.png', 'Sandwich', '6', Color(0xFFD7FADA)),
+        ],
+      ),
+    );
+  }
+
+  _buildColumnItem(String imgPath, String foodName, String price, Color bgColor) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Container(
+          width: 210.0,
+          child: Row(
+            children: [
+              Container(
+                height: 75.0,
+                width: 75.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7.0),
+                  color: bgColor
+                ),
+                child: Center(
+                  child: Image.asset(imgPath, height: 50.0, width: 50.0),
+                ),
+              ),
+              SizedBox(width: 20.0),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    foodName,
+                    style: GoogleFonts.notoSans(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w400
+                    )
+                  ),
+                  Text('\$' + price,
+                    style: GoogleFonts.lato(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        textStyle: TextStyle(
+                            color: Color(0xFFF68D7F)
+                        )
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+        )
+      ],
     );
   }
 
