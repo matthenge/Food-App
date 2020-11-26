@@ -14,7 +14,8 @@ class _FoodTabState extends State<FoodTab> {
       body: ListView(
         children: <Widget>[
           _buildListItem('Delicious hot dog', 4.0, '6', 'assets/hotdog.png'),
-          _buildListItem('Cheese pizza', 5.0, '12', 'assets/pizza.png')
+          _buildListItem('Cheese pizza', 5.0, '12', 'assets/pizza.png'),
+          SizedBox(height: 4.0)
         ],
       ),
     );
